@@ -4,7 +4,7 @@ const href = "http://demo.s-wifi.vn/campaign/tropica/"
 
 function getOptions(type) {
     return {
-        directory: "./" + type,
+        directory: "./src/" + type,
     };
 }
 const files = [
