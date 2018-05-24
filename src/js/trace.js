@@ -1,4 +1,4 @@
 //trace
-	function trace(s){
-		console.log(s)
-	}
+function trace(s) {
+    console.log(s)
+}
