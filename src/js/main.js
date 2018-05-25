@@ -38,7 +38,7 @@ function init() {
     renderer = PIXI.autoDetectRenderer(sw, sh, { transparent: true });
     document.getElementById('canvasHolder').appendChild(renderer.view);
 
-    createBubbleBG();
+    createBubbleBG(); // Add tini bubble
     container = stage.addContainer({ id: "container", alpha: 0 });
 
     createSence_0();
@@ -84,6 +84,8 @@ function onResize() {
 /////////////////////////////////////////////////////////////////////////////////////////
 function animationIn() {
     trace("animationIn");
+    // console.log(container)
+    // console.log(bubbleBG)
 
     onResize();
 
@@ -216,6 +218,11 @@ function randomBubbleBG(item, flag) {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Chuyển từ scene này sang scene khác
+ * @param {*} curSence 
+ * @param {*} target 
+ */
 function gotoSence(curSence, target) {
     TweenMax.to(container, .3, {
         alpha: 0,
@@ -491,6 +498,7 @@ function createSence_1() {
 
                     frutHolder.addContainer({ id: "core" });
                     with(frutHolder) {
+                            // console.log("frutHolder", frutHolder);
                             var itemArr = [];
                             var breakArr = [];
                             var ratio = sh / 568;
@@ -573,7 +581,7 @@ function sence1_start() {
         var item = itemArr[i];
         item.frutID = i;
         item.rotation = convertToRadian(45);
-        item.scale.x = item.scale.y = 3;
+        // item.scale.x = item.scale.y = 3;
 
         item.scale.x = item.scale.y = 0;
         item.tween = TweenMax.from(item.scale, 10, { x: 5, y: 5, ease: Linear.easeNone, repeat: -1 });
